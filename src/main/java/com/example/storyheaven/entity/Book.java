@@ -22,4 +22,7 @@ public class Book {
     private String description;
 
     private int year;
+
+    @Column(name = "image_url")
+    private String imageUrl;
 }

@@ -35,6 +35,10 @@
                     <label>Год</label>
                     <input type="number" th:field="*{year}" class="form-control" required/>
                 </div>
+                <div class="mb-3">
+                    <label>URL обложки</label>
+                    <input type="text" th:field="*{imageUrl}" class="form-control" required/>
+                </div>
                 <button type="submit" class="btn btn-success">Сохранить</button>
                 <a th:href="@{/admin/books}" class="btn btn-secondary ms-2">Назад</a>
             </form>
