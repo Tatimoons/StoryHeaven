@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Пользовательское соглашение</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+<!-- Навбар -->
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<!-- Контент -->
+<main class="container my-5 flex-grow-1">
+    <h2 class="text-center mb-4">Пользовательское соглашение StoryHeaven</h2>
+
+    <p>Добро пожаловать в онлайн-библиотеку StoryHeaven!</p>
+
+    <p>Пользуясь нашим сайтом, вы соглашаетесь соблюдать следующие условия:</p>
+
+    <ul>
+        <li>Не размещать запрещённый контент.</li>
+        <li>Уважать авторские права на размещённые книги.</li>
+        <li>Не использовать сайт для противоправной деятельности.</li>
+        <li>Данные пользователей обрабатываются в соответствии с политикой конфиденциальности.</li>
+    </ul>
+
+    <p>Администрация оставляет за собой право изменять условия использования без предварительного уведомления.</p>
+
+    <p class="mt-4">Если у вас есть вопросы — пожалуйста, свяжитесь с поддержкой: support@storyheaven.kz</p>
+</main>
+
+<!-- Футер -->
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>
