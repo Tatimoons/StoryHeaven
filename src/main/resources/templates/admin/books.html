@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Администрирование книг</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<main class="container my-5 flex-grow-1">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Список книг (админ)</h2>
+        <a th:href="@{/admin/books/add}" class="btn btn-primary">➕ Добавить книгу</a>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>Название</th>
+            <th>Автор</th>
+            <th>Год</th>
+            <th>Действия</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${books}">
+            <td th:text="${book.title}">Название</td>
+            <td th:text="${book.author}">Автор</td>
+            <td th:text="${book.year}">Год</td>
+            <td>
+                <a th:href="@{/admin/books/edit/{id}(id=${book.id})}" class="btn btn-sm btn-warning">✏️ Изменить</a>
+                <a th:href="@{/admin/books/delete/{id}(id=${book.id})}" class="btn btn-sm btn-danger"
+                   onclick="return confirm('Удалить книгу?');">🗑️ Удалить</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
