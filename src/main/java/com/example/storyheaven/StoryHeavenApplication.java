@@ -31,7 +31,7 @@ public class StoryHeavenApplication {
                         .role("ROLE_ADMIN")
                         .build();
                 userRepository.save(admin);
-                System.out.println("Администратор создан: admin@storyheaven.kz / admin123");
+                System.out.println("Администратор создан: admin@storyheaven.kz / admin");
             }
         };
     }
