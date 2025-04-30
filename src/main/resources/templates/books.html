@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Все книги</title>
+    <title>All books</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="d-flex flex-column min-vh-100 bg-light">
@@ -11,16 +11,17 @@
 
 <!-- Контент -->
 <main class="container my-5 flex-grow-1">
-    <h2 class="mb-4 text-center">Список всех книг</h2>
+    <h2 class="mb-4 text-center">All books</h2>
 
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         <div class="col" th:each="book : ${books}">
             <div class="card h-100 shadow-sm">
                 <div class="card-body">
+                    <img th:src="${book.imageUrl}" alt="cover" class="img-fluid mb-2" style="height: 300px; object-fit: cover;">
                     <h5 class="card-title" th:text="${book.title}">Book Title</h5>
-                    <p class="card-text"><strong>Автор:</strong> <span th:text="${book.author}">Author</span></p>
+                    <p class="card-text"><strong>Author:</strong> <span th:text="${book.author}">Author</span></p>
                     <p class="card-text" th:text="${book.description}">Description</p>
-                    <p class="card-text"><strong>Год:</strong> <span th:text="${book.year}">Year</span></p>
+                    <p class="card-text"><strong>Year:</strong> <span th:text="${book.year}">Year</span></p>
                 </div>
             </div>
         </div>
