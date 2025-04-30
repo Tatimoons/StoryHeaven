@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" th:fragment="navbar">
-    <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/home}">📚 StoryHeaven</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<nav class="navbar navbar-expand-lg shadow-sm border-bottom" style="background-color: #cfc8f5;" th:fragment="navbar">
+    <div class="container px-4">
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/books}">Все книги</a>
-                    </li>
+        <!-- Логотип -->
+        <a class="navbar-brand d-flex align-items-center" th:href="@{/home}">
+            <img src="/img/book-black.svg" alt="Logo" width="30" height="30" class="me-2">
+            <span class="fw-semibold">StoryHeaven</span>
+        </a>
 
-                    <li class="nav-item" th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
-                        <a class="nav-link" th:href="@{/admin/books}">CRUD</a>
-                    </li>
+        <!-- Поисковая форма -->
+        <form class="d-flex me-3" role="search">
+            <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-secondary rounded-pill" type="submit">🔍</button>
+        </form>
 
-                    <li class="nav-item">
-                        <form th:action="@{/logout}" method="post" style="display: inline;">
-                            <a href="#" class="nav-link text-danger" onclick="this.closest('form').submit(); return false;">Выйти</a>
-                        </form>
-                    </li>
-                </ul>
+        <!-- Нав-меню -->
+        <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav align-items-center gap-3">
+
+                <li class="nav-item">
+                    <a class="nav-link text-dark" th:href="@{/books}">Library</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="#">Authors</a>
+                </li>
+
+                <li class="nav-item" th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
+                    <a class="nav-link text-dark fw-semibold" th:href="@{/admin/books}">CRUD</a>
+                </li>
+
+                <li class="nav-item">
+                    <form th:action="@{/logout}" method="post" class="d-inline">
+                        <button class="btn btn-outline-dark btn-sm rounded-pill text-dark" type="submit">Log out</button>
+                    </form>
+                </li>
+
             </ul>
         </div>
     </div>
